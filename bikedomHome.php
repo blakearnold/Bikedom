@@ -1,18 +1,11 @@
+<?php include 'layout.php' ?>
 <html>
 <head>
 	<title>Bikedom, a new way to share</title>
 </head>
-<div class="header">
-<h1>BIKEDOM</h1>
-<div class="subhead">a new way to share</div>
-<div class = "links">
-<ul>
-<li><a href="faq.php">FAQ</a></li>
-<li><a href="account.php">My Account</a></li>
-</ul>
-</div>
-</div>
+<body>
 
+<?php print_header() ?>
 <div class="body">
 <div class="rent"><a href="rent.php">Rent A Bike</a> </div>
 <div class="list"><a href="list.php">List A Bike</a><div>
@@ -24,11 +17,9 @@
 </p>
 </div>
 </div>
-<div class="footer">
-<ul>
-<li><a href="sitemap.php">Sitemap</a></li>
-<li><a href="faq.php">FAQ</a></li>
-</ul>
 
-<div>
-</head>
+<?php print_footer() ?>
+
+</body>
+
+</html>
