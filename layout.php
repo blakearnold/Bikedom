@@ -9,11 +9,7 @@ function print_head(){
 		<head>
 		<title>Bikedom, a new way to share</title>
 		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-		<style type="text/css">
-		html { height: 100% }
-	  	body { height: 100%; margin: 0px; padding: 0px }
-	    #map_canvas { height: 100% }
-	  	</style>
+		<link rel="stylesheet" href="/style.css" type="text/css">
 		<script type="text/javascript"
 		      src="http://maps.google.com/maps/api/js?sensor=false">
 		 </script>
@@ -36,13 +32,11 @@ function print_header(){
 ?>
 
 <div class="header">
-<h1>BIKEDOM</h1>
+<div class="mainhead">Bikedom</div>
 <div class="subhead">a new way to share</div>
-<div class = "links">
-<ul>
-<li><a href="faq.php">FAQ</a></li>
-<li><a href="account.php">My Account</a></li>
-</ul>
+<div class = "headlinks">
+<a href="faq.php">FAQ</a>
+<a href="account.php">My Account</a>
 </div>
 </div>
 <?php

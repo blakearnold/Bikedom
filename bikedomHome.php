@@ -4,7 +4,7 @@ print_head();
 print_header();
 ?>
 <div class="body">
-<div class="rent"><a href="rent.php">Rent A Bike</a> </div>
+<div class="rent"><a href="rent.php">Rent A Bike</a></div>
 <div class="list"><a href="list.php">List A Bike</a><div>
 
 
