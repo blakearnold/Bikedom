@@ -1,5 +1,7 @@
 <?php 
 include 'layout.php';
+include 'helper.php';
+forceLogin();
 print_head_start();
 ?>
 </head>
@@ -8,11 +10,6 @@ print_head_start();
 print_header();
 ?>
 <div class="body">
-<?php
-if(!isset($_COOKIE['user'])){
-
-	header('Location:login.php');
-}?>
 <div class="form"><br />
 <form>
 <table>

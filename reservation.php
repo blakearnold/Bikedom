@@ -10,7 +10,8 @@ print_head_start();
 print_header();
 ?>
 <div class="body">
-<h2>Your account information:</h2>
+<h2>Reserve this bike!</h2>
+We need to create a reservation form here.
 
 </div>
 

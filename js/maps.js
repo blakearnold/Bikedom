@@ -28,18 +28,18 @@ xmlDoc=xmlhttp.responseXML;
 		for (var i = 0; i < markers.length; i++) {
 		    var rate = markers[i].getAttribute("rate");
 		    var address = markers[i].getAttribute("address");
+		    var bserial = markers[i].getAttribute("bserial");
 		    var type = markers[i].getAttribute("type");
 		    var point = new google.maps.LatLng(parseFloat(markers[i].getAttribute("lat")),
 			parseFloat(markers[i].getAttribute("lng")));
-		    var bserial = markers[i].getAttribute("bserial");
-			createMarker(point, map, rate, address, type);
+			createMarker(point, map, rate, address, type, bserial);
 		
 	    }
 	}
     
 }
 
-function createMarker(point, map, rate, address, type) {
+function createMarker(point, map, rate, address, type, bserial) {
     var marker = new google.maps.Marker({
 		position: point,
 		map: map,

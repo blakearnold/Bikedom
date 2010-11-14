@@ -1,6 +1,7 @@
 <?php
 ini_set('display_errors', 'On');  
 function print_head_start(){
+include 'siteInfo.php';
 ?>
 
 
@@ -8,18 +9,19 @@ function print_head_start(){
 		<html>
 		<head>
 		<title>Bikedom, a new way to share</title>
-		<link rel="stylesheet" href="style.css" type="text/css">
+		<link rel="stylesheet" href="<?php echo "$css" ?>/style.css" type="text/css">
 <?php
 };
 function print_header(){
+include 'siteInfo.php';
+include 'helper.php'
 ?>
-
 <div class="header">
-<div class="mainhead"><a href="bikedomHome.php" class='homelink'>Bikedom</a></div>
+<div class="mainhead"><a href="<?php echo $index ?>" class='homelink'>Bikedom</a></div>
 <div class="subhead">a new way to share</div>
 <div class = "headlinks">
 <?php
-if(isset($_COOKIE['user'])){ 
+if(isLoggedIn()){
 	?>
 	Welcome back <?php echo $_COOKIE['user']; ?>!
 	<a href="logout.php">Logout</a>

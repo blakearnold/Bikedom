@@ -1,13 +1,12 @@
 <?php
-echo "hey" . $_POST['user'];
-if( isset($_COOKIE['user'])){
-	echo "hey!";
-	echo $_COOKIE['user'];
+include 'helper.php';
+if(isLoggedIn()){
+	redirect("bikedomHome.php");
 }
 setcookie("user", $_POST["user"], 0, "/");
-if($_POST['ref'] == ""){
-	header( 'Location: bikedomHome.php' ) ;
+if(!isset($_POST['ref'])){
+	redirect('bikedomHome.php');
 } else{
-	header ('Location:'. $_POST['ref']);
+	header ('Location: '. $_POST['ref']);
 }
 ?>

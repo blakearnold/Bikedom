@@ -1,5 +1,6 @@
 <?php 
 include 'layout.php';
+include 'helper.php';
 print_head_start();
 ?>
 </head>
@@ -9,7 +10,7 @@ print_header();
 ?>
 <div class="body">
 <?php 
-if(isset($_COOKIE["user"])){ 
+if(isLoggedIn()){ 
 	?>
 		You are already logged in as <?php echo $_COOKIE["user"]; ?>!
 		<a href="logout.php">Logout?</a>
