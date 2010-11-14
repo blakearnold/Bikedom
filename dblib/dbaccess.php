@@ -1,5 +1,8 @@
 
 <?php
+echo 'hello';
+
+ini_set('display_errors', 'On');
 $username = "ab2929@ADB";
 $password = "bikeLock";
 $server = "w4111c.cs.columbia.edu"
@@ -49,7 +52,7 @@ function getAllBikes(){
 	cleanup();
 }
 
-getAllBikes();
+//getAllBikes();
 
 ?>
 
