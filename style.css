@@ -18,3 +18,34 @@
 	text-align: right;
 	font-size: 1em;
 }
+.body {
+	font-family: Verdana, sans-serif;
+}
+
+
+
+.button {
+    padding: 5px 10px;
+    display: inline;
+    background: #002357 url(button.png) repeat-x bottom;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    text-shadow: 1px 1px #666;
+}
+
+.buttons {
+	text-align: center;
+}
+
+.description {
+	text-align: left;
+}
+
+.footer {
+	text-align: left;
+}
