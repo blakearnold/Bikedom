@@ -1,0 +1,20 @@
+.header {
+	font-family: Verdana, sans-serif; 
+	font-variant: small-caps; 
+	color: #002357; 		
+}
+.mainhead {
+	font-variant: small-caps; 
+	font-size: 3em;
+	text-align: center; 
+}
+.subhead {
+	font-variant: normal; 
+	text-align: center; 
+	font-size: 1.5em;
+}
+.headlinks {
+	font-variant: normal;
+	text-align: right;
+	font-size: 1em;
+}

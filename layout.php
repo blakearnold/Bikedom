@@ -8,19 +8,18 @@ function print_head_start(){
 		<html>
 		<head>
 		<title>Bikedom, a new way to share</title>
+		<link rel="stylesheet" href="/style.css" type="text/css">
 <?php
 };
 function print_header(){
 ?>
 
 <div class="header">
-<h1>BIKEDOM</h1>
+<div class="mainhead">Bikedom</div>
 <div class="subhead">a new way to share</div>
-<div class = "links">
-<ul>
-<li><a href="faq.php">FAQ</a></li>
-<li><a href="account.php">My Account</a></li>
-</ul>
+<div class = "headlinks">
+<a href="faq.php">FAQ</a>
+<a href="account.php">My Account</a>
 </div>
 </div>
 <?php
