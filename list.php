@@ -1,11 +1,12 @@
-<?php include 'layout.php' ?>
-<html>
-<head>
-	<title>Bikedom, a new way to share</title>
+<?php 
+include 'layout.php';
+print_head_start();
+?>
 </head>
 <body>
-
-<?php print_header() ?>
+<?php
+print_header();
+?>
 <div class="body">
 <div class="rent"><a href="rent.php">Rent A Bike</a> </div>
 <div class="list"><a href="list.php">List A Bike</a><div>
