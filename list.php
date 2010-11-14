@@ -9,8 +9,10 @@ print_header();
 ?>
 <div class="body">
 <?php
-print_buttons();
-?>
+if(!isset($_COOKIE['user'])){
+
+	header('Location:login.php');
+}?>
 <div class="form"><br />
 <form>
 <table>
