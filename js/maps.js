@@ -23,6 +23,7 @@ else
 xmlhttp.open("GET",$xmlLoc,false);
 xmlhttp.send();
 xmlDoc=xmlhttp.responseXML;
+	if(xmlDoc){
 		var markers = xmlDoc.documentElement.getElementsByTagName("bike");
 		for (var i = 0; i < markers.length; i++) {
 		    var rate = markers[i].getAttribute("rate");
@@ -30,9 +31,11 @@ xmlDoc=xmlhttp.responseXML;
 		    var type = markers[i].getAttribute("type");
 		    var point = new google.maps.LatLng(parseFloat(markers[i].getAttribute("lat")),
 			parseFloat(markers[i].getAttribute("lng")));
-		    createMarker(point, map, rate, address, type);
+		    var bserial = markers[i].getAttribute("bserial");
+			createMarker(point, map, rate, address, type);
 		
 	    }
+	}
     
 }
 
@@ -41,7 +44,7 @@ function createMarker(point, map, rate, address, type) {
 		position: point,
 		map: map,
 	    title:"Whats the title?"});
-    var html = "<b>" + type + ":</b> <br/>" + address + "<br/> Rate: " + rate;
+    var html = "<b>" + address + ":</b> <br/> Type: " + type + "<br/> Rate: " + rate + "<br> <a href='reservation.php?bikeId=" + bserial + "'>Reserve this Bike!</a>";
     google.maps.event.addListener(marker, 'click', function() {
 		info = new google.maps.InfoWindow({content: html});
 		info.open(map,marker);

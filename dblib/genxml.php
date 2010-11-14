@@ -15,16 +15,23 @@ function parseToXML($htmlStr)
 // Opens a connection to a MySQL server
 $connection=oci_connect($username, $password, $database);
 if (!$connection) {
-	  die('Not connected : ');
+	  echo "<bike></bike>";
+	  $e = oci_error();
+	  trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
 }
 
 // Select all the rows in the markers table
-$query = 'SELECT B.RATE, B."TYPE", B.COORD_LONG, B.COORD_LAT, L.INTERSECTION FROM BIKES B, LOCATIONS L WHERE L.coord_long = B.coord_long AND B.coord_lat = L.coord_lat';
+$query = 'SELECT B.RATE, B."TYPE", B.COORD_LONG, B.COORD_LAT, L.INTERSECTION, B.bserial FROM BIKES B, LOCATIONS L WHERE L.coord_long = B.coord_long AND B.coord_lat = L.coord_lat';
 $result = oci_parse($connection, $query);
 if (!$result) {
 	  die('Invalid query: ' );
 }
-oci_execute($result, OCI_DEFAULT);
+$r =oci_execute($result, OCI_DEFAULT);
+if (!$r) {
+	$e = oci_error($stid);
+	trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
+}					    }
+
 header("Content-type: text/xml");
 echo '<bikes>';
 // Iterate through the rows, adding XML nodes for each
@@ -37,9 +44,11 @@ while ($row = oci_fetch_row($result)){
 	  echo 'lat="' . $row[3] . '" ';
 	  echo 'lng="' . $row[2] . '" ';
   	  echo 'rate="$' . $row[0] . '/hr" ';
+	  echo 'bserial="' . &row[5] . '"'; 
 	  echo '/>';
 }
 
 // End XML file
 echo '</bikes>';
+oci_close($connection);
 ?>
