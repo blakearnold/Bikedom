@@ -1,5 +1,7 @@
 <?php
 ini_set('display_errors', 'On');  
+
+
 function print_head_start(){
 include 'siteInfo.php';
 ?>
@@ -12,6 +14,9 @@ include 'siteInfo.php';
 		<link rel="stylesheet" href="<?php echo "$css" ?>/style.css" type="text/css">
 <?php
 };
+
+
+
 function print_header(){
 include 'siteInfo.php';
 include 'helper.php'
@@ -57,6 +62,21 @@ function print_buttons(){
 <?php
 }
 
+
+function print_account_sidebar(){
 ?>
 
+<div class="sidebar">
+<ul>
+<li><a href="ownerDashboard.php">My Dashboard</a></li>
+<li><a href="ownerBikes.php">My Bikes</a></li>
+<li><a href="ownerTransactions.php">My Transactions</a></li>
+<li><a href="ownerReservations.php">My Reservations</a></li>
+<li><a href="ownerInformation.php">My Information</a></li>
+</ul>
 
+<?php
+
+}
+
+?>

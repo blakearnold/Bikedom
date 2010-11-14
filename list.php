@@ -11,7 +11,7 @@ print_header();
 ?>
 <div class="body">
 <div class="form"><br />
-<form>
+<form name="listBike" action="dblib/listBike.php">
 <table>
 <tr><td>Lock serial number:<td><span style="font-family: mono">PHP to generate sequential number</span>
 <tr><td>Lock combo:<td><input type="text" name="combo1" size="1" />-<input type="text" name="combo2" size="1" />-<input type="text" name="combo3" size="1" /><br />
@@ -19,7 +19,7 @@ print_header();
 <tr><td>Home longitude:<td><input type="text" name="long" value="user-specified" /><br />
 <tr><td>Home intersection:<td><input type="text" name="intersect" value="user-specified" /><br />
 <tr><td>Rate:<td><input type="text" name="rate" value="user-specified" /><br />
-<tr><td>Type:<td><select name="types"><option value="awesome">Awesome</option><option value="awesomer">Awesomer</option><option value="so super awesome">So Super Awesome</option></select><br />
+<tr><td>Type:<td><select name="types"><option value="Mountain Bike">Mountain Bike</option><option value="Road Bike">Road Bike</option><option value="Hybrid Bike">Hybrid Bike</option></select><br />
 <tr><td>Deposit required:<td><input type="text" name="combo" value="user-specified" /><br />
 <tr><td><td><input type="submit" value="Submit" />
 </table>
