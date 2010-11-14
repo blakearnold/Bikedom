@@ -42,6 +42,19 @@ html { height: 100% }
     text-shadow: 1px 1px #666;
 }
 
+.button2 {
+    padding: 5px 10px;
+    display: inline;
+    background: #CECECE url(button.png) repeat-x bottom;
+    border: none;
+    color: #002357;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
 .buttons {
 	text-align: center;
 }
@@ -61,4 +74,12 @@ html { height: 100% }
 
 .form {
 	text-align: left;
+}
+
+.accountform {
+	text-align: center;
+}
+
+.accountform td {
+	text-align: center;
 }
