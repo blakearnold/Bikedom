@@ -58,3 +58,7 @@ html { height: 100% }
 	text-decoration: none;
 	color: #002357; 
 }
+
+.form {
+	text-align: left;
+}
