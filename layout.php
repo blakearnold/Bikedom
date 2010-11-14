@@ -18,6 +18,14 @@ function print_header(){
 <div class="mainhead"><a href="bikedomHome.php" class='homelink'>Bikedom</a></div>
 <div class="subhead">a new way to share</div>
 <div class = "headlinks">
+<?php
+if(isset($_COOKIE['user'])){ 
+	?>
+	Welcome back <?php echo $_COOKIE['user']; ?>!
+	<a href="logout.php">Logout</a>
+<?php
+}
+?>
 <a href="faq.php">FAQ</a>
 <a href="account.php">My Account</a>
 </div>
