@@ -43,7 +43,7 @@ function print_buttons(){
 ?>
 
 <div class="buttons"><a href="rent.php" class='button'>Rent A Bike</a>
-<a href="list.php" class='button'>List A Bike</a></div>
+<a href="list.php" class='button'>List A Bike</a></div><br />
 <?php
 }
 
