@@ -15,7 +15,7 @@ function print_header(){
 ?>
 
 <div class="header">
-<div class="mainhead">Bikedom</div>
+<div class="mainhead"><a href="/bikedomHome.php" class='homelink'>Bikedom</a></div>
 <div class="subhead">a new way to share</div>
 <div class = "headlinks">
 <a href="faq.php">FAQ</a>
