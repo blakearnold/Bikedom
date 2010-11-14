@@ -8,14 +8,14 @@ function print_head_start(){
 		<html>
 		<head>
 		<title>Bikedom, a new way to share</title>
-		<link rel="stylesheet" href="style.css" type="text/css">
+		<link rel="stylesheet" href="/style.css" type="text/css">
 <?php
 };
 function print_header(){
 ?>
 
 <div class="header">
-<div class="mainhead"><a href="bikedomHome.php" class='homelink'>Bikedom</a></div>
+<div class="mainhead"><a href="/bikedomHome.php" class='homelink'>Bikedom</a></div>
 <div class="subhead">a new way to share</div>
 <div class = "headlinks">
 <a href="faq.php">FAQ</a>
@@ -38,4 +38,15 @@ function print_footer(){
 <div>
 <?php
 }
+
+function print_buttons(){
 ?>
+
+<div class="buttons"><a href="rent.php" class='button'>Rent A Bike</a>
+<a href="list.php" class='button'>List A Bike</a></div>
+<?php
+}
+
+?>
+
+

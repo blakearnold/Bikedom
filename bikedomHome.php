@@ -8,8 +8,9 @@ print_head_start();
 print_header();
 ?>
 <div class="body">
-<div class="buttons"><a href="rent.php" class='button'>Rent A Bike</a>
-<a href="list.php" class='button'>List A Bike</a><div>
+<?php
+print_buttons();
+?>
 
 
 <div class="description">
