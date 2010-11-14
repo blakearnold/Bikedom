@@ -1,3 +1,7 @@
+html { height: 100% }
+	  	body { height: 100%; margin: 0px; padding: 0px }
+	    #map_canvas { height: 100% }
+
 .header {
 	font-family: Verdana, sans-serif; 
 	font-variant: small-caps; 
@@ -38,6 +42,19 @@
     text-shadow: 1px 1px #666;
 }
 
+.button2 {
+    padding: 5px 10px;
+    display: inline;
+    background: #CECECE url(button.png) repeat-x bottom;
+    border: none;
+    color: #002357;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
 .buttons {
 	text-align: center;
 }
@@ -48,4 +65,25 @@
 
 .footer {
 	text-align: left;
+}
+
+.homelink {
+	text-decoration: none;
+	color: #002357; 
+}
+
+.form {
+	text-align: left;
+}
+
+.accountform {
+	text-align: center;
+}
+
+.accountform td {
+	text-align: center;
+}
+
+.footer {
+	font-family: Verdana, sans-serif; 
 }

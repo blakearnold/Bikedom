@@ -16,6 +16,11 @@ if(isset($_COOKIE["user"])){
 	<?php 
 		} else { 
 	?>
+
+<div class="accountform">
+<table width=700 align="center">
+<col width=50%>
+<col width=50%>
 <h2>Login or Create Account</h2>
 <div class=Login>
 <h2>Login</h2>
@@ -25,6 +30,7 @@ Password: <input type="password" name="pwd" /></br>
 <input type="hidden" name="ref" value="<?php echo getenv("HTTP_REFERER"); ?>"> 
 <input type="submit" value="Submit" />
 </form>
+</div>
 <h2>Sign Up</h2>
 <form name="signup" action="signup.php" method="post">
 Username: <input type="text" name="user" /></br>

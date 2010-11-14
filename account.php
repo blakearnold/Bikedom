@@ -19,6 +19,7 @@ if(!isset($_COOKIE["user"])){
 <h2>Your account information:</h2>
 <?php 
 	} 
+print_buttons();
 ?>
 
 </div>
