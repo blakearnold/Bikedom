@@ -1,6 +1,10 @@
 <?php 
 include 'layout.php';
-print_head();
+print_head_start();
+?>
+</head>
+<body>
+<?php
 print_header();
 ?>
 <div class="body">

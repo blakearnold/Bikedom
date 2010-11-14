@@ -36,7 +36,7 @@ while ($row = oci_fetch_row($result)){
 	  echo 'address="' . parseToXML($row[4]) . '" ';
 	  echo 'lat="' . $row[3] . '" ';
 	  echo 'lng="' . $row[2] . '" ';
-  	  echo 'rate="' . $row[1] . '" ';
+  	  echo 'rate="$' . $row[0] . '/hr" ';
 	  echo '/>';
 }
 
