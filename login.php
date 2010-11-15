@@ -25,6 +25,13 @@ if(isLoggedIn()){
 <tr><td colspan=2><h2>Login or Create Account</h2>
 <tr><td colspan=2><div class=Login>
 <h3>Login</h3>
+<?php
+if(isset($_GET['failed'])){
+	?>
+		<p>Wrong username or password</p>
+		<?php 
+}
+?>
 <form name="input" action="loginCheck.php" method="post">
 <tr><td>Username:<td><input type="text" name="user" /></br>
 <tr><td>Password:<td><input type="password" name="pwd" /></br>
