@@ -116,6 +116,20 @@ html { height: 100% }
 td.futurereserve {
 	background-color: #00CC00;
 }
+
 td.pastreserve {
 	background-color: #CC0000;
 }
+
+.reservationform {
+	font-family: Verdana, sans-serif; 
+	text-align: left;
+}
+
+.reservationform h2 {
+	color: #002357;
+}
+
+
+
+
