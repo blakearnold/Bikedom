@@ -1,3 +1,5 @@
+
+
 html { height: 100% }
 	  	body { height: 100%; margin: 0px; padding: 0px }
 	    #map_canvas { height: 100% }
@@ -86,4 +88,25 @@ html { height: 100% }
 
 .footer {
 	font-family: Verdana, sans-serif; 
+}
+
+.dashboard {	
+	font-family: Verdana, sans-serif; 
+	
+}
+
+.dashboard h3 {
+	color: #002357;
+	text-decoration: underline;
+}
+
+.dashboard h4 {
+	color: #002357;
+}
+
+td.futurereserve {
+	background-color: #00CC00;
+}
+td.pastreserve {
+	background-color: #CC0000;
 }
