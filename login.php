@@ -49,7 +49,7 @@ if(isset($_GET['failed'])){
 
 <tr><td>Name:<td><input type="text" name="name" /></br>
 
-<tr><td>Email Address:<td><input type="text" name="email" /></br>
+<tr><td>Phone Number:<td><input type="text" name="phone" /></br>
 
 <input type="hidden" name="ref" value="<?php echo getenv("HTTP_REFERER"); ?>"> 
 <input type="submit" value="Submit" />
