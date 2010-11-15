@@ -23,12 +23,12 @@ Address or Landmark:<input id="address" type="textbox" name=address />
 <form name="listBike" action="dblib/listBike.php">
 <table>
 <tr><td>Lock serial number:<td><span style="font-family: mono">PHP to generate sequential number</span>
-<tr><td>Lock combo:<td><input type="text" name="combo1" size="1" />-<input type="text" name="combo2" size="1" />-<input type="text" name="combo3" size="1" /><br />
+<tr><td>Lock combo:<td><input type="text" name="combo" size="5" /><br />
 <tr><td>Home intersection:<td><input type="text" name="intersect" /><br />
 <tr><td>Home latitude:<td><input type="text" id="lat" name="lat" value="" /><br />
 <tr><td>Home longitude:<td><input type="text" id="lng" name="long" /><br />
 <tr><td>Rate per hour:<td>$<input type="text" size="4" name="rate" />/hr<br />
-<tr><td>Type:<td><select name="types"><option value="Mountain Bike">Mountain Bike</option><option value="Road Bike">Road Bike</option><option value="Hybrid Bike">Hybrid Bike</option></select><br />
+<tr><td>Type:<td><select name="type"><option value="Mountain Bike">Mountain Bike</option><option value="Road Bike">Road Bike</option><option value="Hybrid Bike">Hybrid Bike</option></select><br />
 <tr><td>Bike Value:<td>$<input type="text" size="3" name="deposit"/><br />
 <input type=hidden name="user" value="<?php echo$_COOKIE['user'];?>" />
 <tr><td><td><input type="submit" value="Submit" />
