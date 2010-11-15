@@ -1,6 +1,7 @@
 <?php 
 include 'layout.php';
 include 'helper.php';
+include 'dblib/getbikeid.php';
 forceLogin();
 print_head_start();
 ?>
@@ -20,7 +21,7 @@ echo $_GET["bikeId"];
 <col width=50%>
 <col width=50%>
 <tr><td>Bike ID<td><?php echo $_GET["bikeId"]; ?>
-<tr><td>Home Location<td>PHP
+<tr><td>Home Location<td><?php  get_bike_location()  ?>
 <tr><td>Start date<td><select name="startyear"><?php print_dateselect() ?>
 <tr><td>Start time<td><select name="starttimehour"><?php print_timeselecthour() ?>:<select name="starttimeminute"><?php print_timeselectminute() ?>
 <tr><td>End date<td><select name="endyear"><?php print_dateselect() ?>
