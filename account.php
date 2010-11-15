@@ -11,6 +11,16 @@ print_header();
 ?>
 <div class="dashboard">
 <h3>Your account information:</h3>
+<h4>Your info:</h4>
+<div class="accountform">
+<table width=700 align="center">
+<col width=30%>
+<col width=30%>
+<col width=40%>
+<tr><td>Name<td>NAME<td><form><input type="text" name="newname" value="Update name" /><input type="submit" value="Submit" />
+<tr><td>ID<td>ID<td>ID cannot be changed
+<tr><td>Phone<td>PHONE<td><form><input type="text" name="newphone" value="Update phone" /><input type="submit" value="Submit" />
+</table>
 <h4>Your bikes:</h4>
 <div class="accountform">
 <table width=700 align="center">

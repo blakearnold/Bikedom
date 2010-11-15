@@ -91,6 +91,10 @@ html { height: 100% }
 	text-decoration: underline;
 }
 
+.accountform h4 {
+	text-align: left;
+}
+
 .footer {
 	font-family: Verdana, sans-serif; 
 }
