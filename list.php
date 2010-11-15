@@ -22,7 +22,6 @@ Address or Landmark:<input id="address" type="textbox" name=address />
 <div class="form"><br />
 <form name="listBike" action="dblib/listBike.php">
 <table>
-<tr><td>Lock serial number:<td><span style="font-family: mono">PHP to generate sequential number</span>
 <tr><td>Lock combo:<td><input type="text" name="combo" size="5" /><br />
 <tr><td>Home intersection:<td><input type="text" name="intersect" /><br />
 <tr><td>Home latitude:<td><input type="text" id="lat" name="lat" value="" /><br />
