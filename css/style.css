@@ -86,6 +86,11 @@ html { height: 100% }
 	text-align: left;
 }
 
+.accountform h2 {
+	color: #002357;
+	text-decoration: underline;
+}
+
 .footer {
 	font-family: Verdana, sans-serif; 
 }
@@ -95,7 +100,11 @@ html { height: 100% }
 	
 }
 
-.dashboard h3 {
+.Login h3 {
+	color: #002357;
+}
+
+.dashboard h2 {
 	color: #002357;
 	text-decoration: underline;
 }

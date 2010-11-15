@@ -19,20 +19,20 @@ if(isLoggedIn()){
 	?>
 
 <div class="accountform">
-<table width=700 align="center">
+<table width=500 align="center">
 <col width=50%>
 <col width=50%>
 <tr><td colspan=2><h2>Login or Create Account</h2>
 <tr><td colspan=2><div class=Login>
-<h2>Login</h2>
+<h3>Login</h3>
 <form name="input" action="loginCheck.php" method="post">
 <tr><td>Username:<td><input type="text" name="user" /></br>
 <tr><td>Password:<td><input type="password" name="pwd" /></br>
 <input type="hidden" name="ref" value="<?php echo getenv("HTTP_REFERER"); ?>"> 
 <input type="submit" value="Submit" />
 </form>
-</div>
-<tr><td colspan=2><h2>Sign Up</h2>
+</div><div class=Login>
+<tr><td colspan=2><h3>Sign Up</h3>
 <form name="signup" action="signup.php" method="post">
 <tr><td>Username:<td><input type="text" name="user" /></br>
 
@@ -46,7 +46,7 @@ if(isLoggedIn()){
 
 <input type="hidden" name="ref" value="<?php echo getenv("HTTP_REFERER"); ?>"> 
 <input type="submit" value="Submit" />
-</form></table>
+</form></div></table>
 <?php 
 	} 
 ?>
