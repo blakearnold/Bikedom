@@ -22,31 +22,31 @@ if(isLoggedIn()){
 <table width=700 align="center">
 <col width=50%>
 <col width=50%>
-<h2>Login or Create Account</h2>
-<div class=Login>
+<tr><td colspan=2><h2>Login or Create Account</h2>
+<tr><td colspan=2><div class=Login>
 <h2>Login</h2>
 <form name="input" action="loginCheck.php" method="post">
-Username: <input type="text" name="user" /></br>
-Password: <input type="password" name="pwd" /></br>
+<tr><td>Username:<td><input type="text" name="user" /></br>
+<tr><td>Password:<td><input type="password" name="pwd" /></br>
 <input type="hidden" name="ref" value="<?php echo getenv("HTTP_REFERER"); ?>"> 
 <input type="submit" value="Submit" />
 </form>
 </div>
-<h2>Sign Up</h2>
+<tr><td colspan=2><h2>Sign Up</h2>
 <form name="signup" action="signup.php" method="post">
-Username: <input type="text" name="user" /></br>
+<tr><td>Username:<td><input type="text" name="user" /></br>
 
-Password: <input type="password" name="pwd" /></br>
+<tr><td>Password:<td><input type="password" name="pwd" /></br>
 
-Retype Password: <input type="password" name="pwd2" /></br>
+<tr><td>Retype Password:<td><input type="password" name="pwd2" /></br>
 
-Name: <input type="text" name="name" /></br>
+<tr><td>Name:<td><input type="text" name="name" /></br>
 
-Email Address: <input type="text" name="email" /></br>
+<tr><td>Email Address:<td><input type="text" name="email" /></br>
 
 <input type="hidden" name="ref" value="<?php echo getenv("HTTP_REFERER"); ?>"> 
 <input type="submit" value="Submit" />
-</form>
+</form></table>
 <?php 
 	} 
 ?>
