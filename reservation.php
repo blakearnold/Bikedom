@@ -25,6 +25,7 @@ echo $_GET["bikeId"];
 <tr><td>Start time<td><select name="starttimehour"><?php print_timeselecthour() ?>:<select name="starttimeminute"><?php print_timeselectminute() ?>
 <tr><td>End date<td><select name="endyear"><?php print_dateselect() ?>
 <tr><td>End time<td><select name="endtimehour"><?php print_timeselecthour() ?>:<select name="endtimeminute"><?php print_timeselectminute() ?>
+<tr><td><td><input type="submit" value="Submit" />
 </table>
 </form>
 </div>
