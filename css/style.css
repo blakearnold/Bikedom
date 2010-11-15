@@ -86,6 +86,15 @@ html { height: 100% }
 	text-align: center;
 }
 
+.accountform h2 {
+	color: #002357;
+	text-decoration: underline;
+}
+
+.accountform h4 {
+	text-align: left;
+}
+
 .footer {
 	font-family: Verdana, sans-serif; 
 }
@@ -95,7 +104,11 @@ html { height: 100% }
 	
 }
 
-.dashboard h3 {
+.Login h3 {
+	color: #002357;
+}
+
+.dashboard h2 {
 	color: #002357;
 	text-decoration: underline;
 }
@@ -107,6 +120,20 @@ html { height: 100% }
 td.futurereserve {
 	background-color: #00CC00;
 }
+
 td.pastreserve {
 	background-color: #CC0000;
 }
+
+.reservationform {
+	font-family: Verdana, sans-serif; 
+	text-align: left;
+}
+
+.reservationform h2 {
+	color: #002357;
+}
+
+
+
+
