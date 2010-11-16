@@ -23,7 +23,7 @@ print_header();
 <h4>Your bikes:</h4>
 <div class="accountform">
 <table width=700 align="center">
-<tr><td>bserial<td>type<td>rate<td>intersection
+<tr><td>bserial<td>type<td>rate<td>intersection<td>combo
 <?php print_bikes($_COOKIE['user']); ?>
 </table>
 </div>
