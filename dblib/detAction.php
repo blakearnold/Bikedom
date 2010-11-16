@@ -2,7 +2,7 @@
 ini_set('display_errors', 'On'); 
 require 'dbinfo.php';
 
-function get_bike_location($conf_num, $user_id) {
+function get_reservation_status($conf_num, $user_login) {
 require 'dbinfo.php';
 // Opens a connection to a MySQL server
 $connection=oci_connect($username, $password, $database);
@@ -11,18 +11,18 @@ if (!$connection) {
 	  trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
 }
 
-// save user login
-$query_login = 'select a.login from account a where a.real_id = ' . $user_id;
-$parse_login = oci_parse($connection, $query_login);
-if (!$parse_login) { die('Invalid query'); }
-$result_login = oci_execute($parse_login, OCI_DEFAULT);
-if (!$result_login) {
+// save user id
+$query_id = 'select a.real_id from account a where a.login = \'' . $user_login . '\'';
+$parse_id = oci_parse($connection, $query_id);
+if (!$parse_id) { die('Invalid query'); }
+$result_id = oci_execute($parse_id, OCI_DEFAULT);
+if (!$result_id) {
 	$e = oci_error($stid);
 	trigger_error(htmlentries($e['message'], ENT_QUOTES), E_USER_ERROR);
 }
-$array_login = oci_fetch_array($parse_login, OCI_BOTH);
-$user_login = $array_login[0];
-if(!$array_login) { die('ERROR: User with realid = ' . $user_id . ' does not exist.'); }
+$array_id = oci_fetch_array($parse_id, OCI_BOTH);
+$user_id = $array_id[0];
+if(!$array_id) { die('ERROR: User with realid = ' . $user_id . ' does not exist.'); }
 //echo("determined user login to be: " . $user_login . " | ");
 
 
