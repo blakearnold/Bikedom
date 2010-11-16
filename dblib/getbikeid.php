@@ -7,7 +7,6 @@ require 'dbinfo.php';
 // Opens a connection to a MySQL server
 $connection=oci_connect($username, $password, $database);
 if (!$connection) {
-	  echo "<bike></bike>";
 	  $e = oci_error();
 	  trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
 }
