@@ -30,7 +30,7 @@ print_header();
 
 
 
-<h4>Your bikes:</h4>
+<h4>Your incoming reservations:</h4>
 <div class="accountform">
 <table width=700 align="center">
 <col width=10%>
@@ -46,7 +46,7 @@ print_header();
 <form name="changecombo" action="updateCombo.php" method="post">
 Bserial: <input type="text" name="bserial" /> New combo: <input type="text" name="newcombo" /> <input type="submit" value="Submit" /> </form>
 </div>
-<h4>Your reservations:</h4>
+<h4>Your outgoing reservations:</h4>
 <div class="accountform">
 <table width=900 align="center">
 <col width=10%>
