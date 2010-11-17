@@ -2,13 +2,17 @@
 ini_set('display_errors', 'On'); 
 require 'dbinfo.php';
 
+
 $is_incoming = 'incoming';
 $is_outgoing = 'outgoing';
 
 function print_res($user_login, $type) {
 require 'dbinfo.php';
+include_once 'detAction.php';
 global $is_incoming;
 global $is_outgoing;
+
+//get_reservation_status(9, $user_login);
 
 // Opens a connection to a MySQL server
 $connection=oci_connect($username, $password, $database);
@@ -47,6 +51,8 @@ while ($row_res = oci_fetch_array($parse_res, OCI_BOTH)) {
 	echo($cell . $row_res[4]);
 	echo($cell . $row_res[5]);
 	echo($cell . $row_res[6]);
+	echo($cell);
+	get_reservation_status($row_res[0], $user_login);
 }
 
 oci_close($connection);

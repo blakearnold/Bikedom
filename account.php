@@ -36,7 +36,7 @@ Bike serial: <input type="text" name="bserial" /> New combo: <input type="text" 
 <h4>Your incoming reservations:</h4>
 <div class="accountform">
 <table width=900 align="center">
-<tr><td><h4>Confirmation</h4><td><h4>Deposit</h4><td><h4>Start</h4><td><h4>Stop</h4><td><h4>Owner</h4><td><h4>Renter</h4><td><h4>Serial</h4>
+<tr><td><h4>Confirmation</h4><td><h4>Deposit</h4><td><h4>Start</h4><td><h4>Stop</h4><td><h4>Owner</h4><td><h4>Renter</h4><td><h4>Serial</h4><td><h4>Status</h4>
 <?php print_res($_COOKIE['user'], 'incoming') ?>
 
 
