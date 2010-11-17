@@ -23,13 +23,13 @@ print_header();
 <h4>Your bikes:</h4>
 <div class="accountform">
 <table width=700 align="center">
-<tr><td>bserial<td>type<td>rate<td>intersection<td>combo
+<tr><td><h4>Serial</h4><td><h4>Type</h4><td><h4>Rate</h4><td><h4>Intersection</h4><td><h4>Combo</h4>
 <?php print_bikes($_COOKIE['user']); ?>
 </table>
 </div>
 <h4>Change lock combo:</h4>
 <form name="changecombo" action="updateCombo.php" method="post">
-Bserial: <input type="text" name="bserial" /> New combo: <input type="text" name="newcombo" /> <input type="submit" value="Submit" /> </form>
+Bike serial: <input type="text" name="bserial" /> New combo: <input type="text" name="newcombo" /> <input type="submit" value="Submit" /> </form>
 
 
 <h4>Your incoming reservations:</h4>
