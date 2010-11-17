@@ -1,0 +1,15 @@
+#sidebar{
+float:left;
+	margin: 20px 20px;
+}
+.dateChooser{
+	z-index:100;
+}
+
+#map_canvas{
+/*	margin-top: 200px; 
+padding: 400px 400px;*/
+	height: 900px;
+	width:  900px;
+}
+
