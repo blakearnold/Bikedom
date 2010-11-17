@@ -1,4 +1,4 @@
-
+var lastInfo;
 function load() {
     
 	var latlng = new google.maps.LatLng(40.76273, -73.985023);
@@ -43,10 +43,13 @@ function createMarker(point, map, rate, address, type, bserial) {
     var marker = new google.maps.Marker({
 		position: point,
 		map: map,
-	    title:"Whats the title?"});
-    var html = "<b>" + address + ":</b> <br/> Type: " + type + "<br/> Rate: " + rate + "<br> <a href='reservation.php?bikeId=" + bserial + "'>Reserve this Bike!</a>";
-    google.maps.event.addListener(marker, 'click', function() {
-		info = new google.maps.InfoWindow({content: html});
-		info.open(map,marker);
+	    title: type});
+	    var html = "<b>" + address + ":</b> <br/> Type: " + type + "<br/> Rate: " + rate + "<br> <a href='reservation.php?bikeId=" + bserial + "'>Reserve this Bike!</a>";
+    	google.maps.event.addListener(marker, 'click', function() {
+			if(lastInfo){
+				lastInfo.close();
+			}
+			lastInfo = new google.maps.InfoWindow({content: html});
+			lastInfo.open(map,marker);
 	});
 }
