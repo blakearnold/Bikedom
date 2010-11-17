@@ -19,12 +19,12 @@ if (!$connection) {
 
 if(strcmp($type, $is_incoming)==0) {
 	//$query_res = 'select * from reservation where ologin=\'' . $user_login . '\'';
-	$query_res = 'select confirmation_num, deposit, start_date, stop_date, n1.name as oname, n2.name as rname, bserial from reservation r, (select name, login from people natural join account) n1, (select name, login from people natural join account) n2 where r.ologin = n1.login and r.rlogin = n2.login and ologin = \'' . $user_login . '\''; 
+	$query_res = 'select confirmation_num, deposit, TO_CHAR(start_date, \'YYYY/MM/DD hh24:mi\') as start_date, TO_CHAR(stop_date, \'YYYY/MM/DD hh24:mi\') as stop_date, n1.name as oname, n2.name as rname, bserial, start_date-sysdate as diff from reservation r, (select name, login from people natural join account) n1, (select name, login from people natural join account) n2 where r.ologin = n1.login and r.rlogin = n2.login and ologin = \'' . $user_login . '\''; 
 	
 }
 else {
 	//$query_res = 'select * from reservation where rlogin=\'' . $user_login . '\'';
-	$query_res = 'select confirmation_num, deposit, start_date, stop_date, n1.name as oname, n2.name as rname, bserial from reservation r, (select name, login from people natural join account) n1, (select name, login from people natural join account) n2 where r.ologin = n1.login and r.rlogin = n2.login and rlogin = \'' . $user_login . '\''; 
+	$query_res = 'select confirmation_num, deposit, TO_CHAR(start_date, \'YYYY/MM/DD hh24:mi\') as start_date, TO_CHAR(stop_date, \'YYYY/MM/DD hh24:mi\') as stop_date_char, n1.name as oname, n2.name as rname, bserial, start_date-sysdate as diff from reservation r, (select name, login from people natural join account) n1, (select name, login from people natural join account) n2 where r.ologin = n1.login and r.rlogin = n2.login and rlogin = \'' . $user_login . '\''; 
 }
 $parse_res = oci_parse($connection, $query_res);
 if(!$parse_res) { die('Invalid query.'); }
@@ -39,13 +39,14 @@ if (!$result_res) {
 
 
 while ($row_res = oci_fetch_array($parse_res, OCI_BOTH)) {
-	echo("<tr><td>" . $row_res[0]);
-	echo("<td>" . $row_res[1]);
-	echo("<td>" . $row_res[2]);
-	echo("<td>" . $row_res[3]);
-	echo("<td>" . $row_res[4]);
-	echo("<td>" . $row_res[5]);
-	echo("<td>" . $row_res[6]);
+	if($row_res[7] > 0) { $cell = '<td class=futurereserve>'; } else { $cell = '<td class=pastreserve>'; }
+	echo("<tr>" . $cell . $row_res[0]);
+	echo($cell . $row_res[1]);
+	echo($cell . $row_res[2]);
+	echo($cell . $row_res[3]);
+	echo($cell . $row_res[4]);
+	echo($cell . $row_res[5]);
+	echo($cell . $row_res[6]);
 }
 
 oci_close($connection);
