@@ -27,7 +27,9 @@ print_header();
 <?php print_bikes($_COOKIE['user']); ?>
 </table>
 </div>
-
+<h4>Change lock combo:</h4>
+<form name="changecombo" action="updateCombo.php" method="post">
+Bserial: <input type="text" name="bserial" /> New combo: <input type="text" name="newcombo" /> <input type="submit" value="Submit" /> </form>
 
 
 <h4>Your incoming reservations:</h4>
@@ -42,9 +44,7 @@ print_header();
 <tr><td>1<td>Martha_Kim<td class="pastreserve">2010-01-01 16:00 to<br />2010-01-01 21:00<td>2<td><div class="buttons"><a href="reportdamage.php?bikeId=1&confNum=3" class='button2'>Report Damage</a></div>
 <tr><td>1<td>Martha_Kim<td class="futurereserve">2010-11-25 16:00 to<br />2010-11-25 21:00<td><td><div class="buttons"><a href="cancel.php" class='button2'>Cancel</a></div>
 </table>
-<h4>Change lock combo:</h4>
-<form name="changecombo" action="updateCombo.php" method="post">
-Bserial: <input type="text" name="bserial" /> New combo: <input type="text" name="newcombo" /> <input type="submit" value="Submit" /> </form>
+
 </div>
 <h4>Your outgoing reservations:</h4>
 <div class="accountform">
