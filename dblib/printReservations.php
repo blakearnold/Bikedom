@@ -18,10 +18,13 @@ if (!$connection) {
 }
 
 if(strcmp($type, $is_incoming)==0) {
-	$query_res = 'select * from reservation where ologin=\'' . $user_login . '\'';
+	//$query_res = 'select * from reservation where ologin=\'' . $user_login . '\'';
+	$query_res = 'select confirmation_num, deposit, start_date, stop_date, n1.name as oname, n2.name as rname, bserial from reservation r, (select name, login from people natural join account) n1, (select name, login from people natural join account) n2 where r.ologin = n1.login and r.rlogin = n2.login and ologin = \'' . $user_login . '\''; 
+	
 }
 else {
-	$query_res = 'select * from reservation where rlogin=\'' . $user_login . '\'';
+	//$query_res = 'select * from reservation where rlogin=\'' . $user_login . '\'';
+	$query_res = 'select confirmation_num, deposit, start_date, stop_date, n1.name as oname, n2.name as rname, bserial from reservation r, (select name, login from people natural join account) n1, (select name, login from people natural join account) n2 where r.ologin = n1.login and r.rlogin = n2.login and rlogin = \'' . $user_login . '\''; 
 }
 $parse_res = oci_parse($connection, $query_res);
 if(!$parse_res) { die('Invalid query.'); }
