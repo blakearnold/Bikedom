@@ -66,7 +66,7 @@ function get_reservation_status($conf_num, $user_login) {
 				//echo("| checking strcmp($array_numin[1], $user_login)	==0 | ");
 				if(strcmp($array_numin[1], $user_login)==0) { echo	("pending (waiting on bike owner)"); }
 				// handle owner
-				else { echo("verify damages"); }
+				else { echo("<a href='reportdamage.php?confNum=" . $conf_num . "'>verify damages</a>"); }
 			}			
 		}
 		else {

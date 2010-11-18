@@ -11,16 +11,17 @@ print_header();
 ?>
 
 <div class="reservationform">
-<h2>Report damage for bike <?php 
-echo $_GET["bikeId"];
-?> from reservation <?php 
+<h2>Report damage for reservation <?php 
 echo $_GET["confNum"];
 ?></h2>
 
-<form method="post" action="/makereserve.php">
+<form method="get" action="reportDamages.php">
 <table width=500 align="center">
-<tr><td><textarea rows="10" cols=100>Damage description</textarea>
-<tr><td><div class="buttons"><a href="" class='button2'>Submit Report</a></div>
+<tr><td>Description:<textarea rows="10" cols=100>Damage description</textarea>
+<tr><td>Cost of Repair:  $<input type="textbox" size = 4 name="cost" value=0 />
+<tr><td><input type=submit value=submit />
+<input type=hidden name="reservation" value="<?php echo $_GET["confNum"]; ?>" />
+
 </table>
 </form>
 </div>

@@ -46,7 +46,7 @@ function testuser($user){
 	oci_close($connection);
 	return $row[0];
 }
-function insertReservation($renter, $bserial, $startDate, $startTime, $endDate, $endTime){
+function insertDamage($owner, $reservation, $damage){
 	
 	global $connection, $username, $password, $database, $error;
 	$connection=oci_connect($username, $password, $database);
@@ -55,16 +55,8 @@ function insertReservation($renter, $bserial, $startDate, $startTime, $endDate, 
 	  $error = htmlentities($e['message'], ENT_QUOTES);
 	  return $error;
 	}
-	$queryMax = "Select count(confirmation_num) from reservation";
-	$max = executeQuery($queryMax);
-	if($error != ""){
-		oci_close($connection);
-		return $error;
-	}
-	$row = oci_fetch_row($max);
-	$confirmation = 1 + $row[0];
 
-	$queryMax = "Select login from bikeowner where bserial=" . $bserial;
+	$queryMax = "Select ologin from reservation where confirmation_num=" . $reservation;
 	$max = executeQuery($queryMax);
 	if($error != ""){
 		oci_close($connection);
@@ -73,32 +65,29 @@ function insertReservation($renter, $bserial, $startDate, $startTime, $endDate, 
 	$row = oci_fetch_row($max);
 	if(!$row[0]){
 		oci_close($connection);
-		$error= "Bike not found";
+		$error= "Reservation not found";
+		return $error;
+	}
+	if($row[0] != $owner){
+
+		oci_close($connection);
+		$error= "You do not own this bike";
 		return $error;
 	}
 
-	$owner = $row[0];
 
-	$deposit = 100;
+	$queryDamage = "UPDATE pendingpayments
+		set DAMAGE_FEE="
+		. $damage
+		. ", complete=1"	
+		. " where CONFIRMATION_NUM="
+		. $reservation
+		
+		;
+
 // Select all the rows in the markers table
-
-
-	$queryRes= "INSERT INTO RESERVATION (CONFIRMATION_NUM, DEPOSIT, START_DATE, STOP_DATE, RLOGIN, OLOGIN, BSERIAL) VALUES (" 
-		. $confirmation 
-		. "," 
-		. $deposit
-		. ","
-		. "to_date('" . $startDate . " " . $startTime ."','yyyy-mm-dd hh24:mi')"
-		. ","
-		. "to_date('" . $endDate . " " . $endTime ."','yyyy-mm-dd hh24:mi')"
-		. ","
-		. "'" . $renter . "'"
-		. ","
-		. "'" . $owner . "'"
-		. ","
-		. $bserial
-		. ")";
-executeQuery($queryRes);
+//	$error = $error . " ". $queryDamage;
+executeQuery($queryDamage);
 oci_commit($connection);
 oci_close($connection);
 return  $error;
