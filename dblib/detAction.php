@@ -22,10 +22,7 @@ function get_reservation_status($conf_num, $user_login) {
 	}
 	$array_id = oci_fetch_array($parse_id, OCI_BOTH);
 	$user_id = $array_id[0];
-	if(!$array_id) { die('ERROR: User with realid = ' . $user_id . ' 	does not exist.'); }
-	//echo("determined user login to be: " . $user_login . " | ");
-	
-	
+	if(!$array_id) { die('ERROR: User with realid = ' . $user_id . ' 	does not exist.'); }	
 	
 	// if(rental end time > current time)
 	$query_diff = 'select sysdate - r.stop_date from reservation r where 	r.confirmation_num = ' . $conf_num;
@@ -54,7 +51,6 @@ function get_reservation_status($conf_num, $user_login) {
 		$array_numin = oci_fetch_array($parse_numin, OCI_BOTH);
 		if($array_numin) {
 			// if(pending payments is complete)
-			//echo("| checking if pendingpayments complete: $array_numin	[0] $array_numin[1] $array_numin[2] $array_numin[3] 	$array_numin[4] | ");
 			if($array_numin[4] == 1) {
 				// handle renter
 				if(strcmp($array_numin[0], $user_login)==0) { echo	("paid"); }
@@ -63,7 +59,6 @@ function get_reservation_status($conf_num, $user_login) {
 			}
 			// pending payments not complete
 			else {
-				//echo("| checking strcmp($array_numin[1], $user_login)	==0 | ");
 				if(strcmp($array_numin[1], $user_login)==0) { echo	("pending (waiting on bike owner)"); }
 				// handle owner
 				else { echo("<a href='reportdamage.php?confNum=" . $conf_num . "'>verify damages</a>"); }
@@ -82,7 +77,8 @@ function get_reservation_status($conf_num, $user_login) {
 			}
 			$array_renter = oci_fetch_array($parse_renter, OCI_BOTH);
 			// handle renter
-			if(strcmp($user_login, $array_renter[0])==0) { echo("mark 	returned"); }
+			$return_button = "<div class=\"buttons\"><a href=\"dblib/return.php?conf=" . $conf_num . "\" class='button2'>Mark Returned</a></div>";
+			if(strcmp($user_login, $array_renter[0])==0) { echo($return_button); }
 			else { echo("report never returned"); }
 		}
 	}
