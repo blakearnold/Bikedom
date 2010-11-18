@@ -1,9 +1,9 @@
 <?php
 ini_set('display_errors','On');
-include 'layout.php';
-require 'dbinfo.php'
+include '../layout.php';
+require 'dbinfo.php';
 
-
+global $username, $password, $database;
 $message = "Error.";
 	// Opens a connection to a MySQL server
 	$connection=oci_connect($username, $password, $database);
@@ -11,7 +11,6 @@ $message = "Error.";
 		  $e = oci_error();
 		  trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
 	}
-	
 	
 	
 	$conf_num = $_GET["conf"];
@@ -48,7 +47,7 @@ $message = "Error.";
 	
 	$renter_login = $_COOKIE['user'];
 	
-	$query_pay = 'insert into pendingpayments (confirmation_num, rlogin, damage_fee, rental_fee, complete) values (' . $conf_num . ',' . $renter_login . ', 0,' . $rate * $hours . ',0)';
+	$query_pay = 'insert into pendingpayments (confirmation_num, rlogin, damage_fee, rental_fee, complete) values (' . $conf_num . ',\'' . $renter_login . '\', 0,' . $rate * $hours . ',0)';
 $parse_pay = oci_parse($connection, $query_pay);
 if(!$parse_pay) { die('invalid query'); }
 $result_pay = oci_execute($parse_pay, OCI_DEFAULT);
@@ -56,8 +55,9 @@ if (!$result_pay) {
 	$e = oci_error();
 	trigger_error(htmlentries($e['message'], ENT_QUOTES), E_USER_ERROR);
 }
-		
-		message = "Marked returned successfully.";
+/*	
+*/		
+		$message = "Marked returned successfully.";
 oci_commit($connection);
 oci_close($connection);
 	
@@ -72,9 +72,9 @@ print_head_start();
 print_header();
 ?>
 <div class="body">
-<?php echo($message); ?>
+<?php echo $message; ?>
 </div>
-<?php print_footer() ?>
+<?php print_footer(); ?>
 
 </body>
 
