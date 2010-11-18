@@ -1,8 +1,14 @@
 var lastInfo;
-var markers = new Array();
 var markerHash = new Array();
+var dateset = false;
 function load() {
 
+	newMap();
+	downloadAndLoad();
+}
+
+function newMap(){
+	
 	var latlng = new google.maps.LatLng(40.76273, -73.985023);
 	var myOptions = {
 zoom: 12,
@@ -10,11 +16,11 @@ zoom: 12,
 	  mapTypeId: google.maps.MapTypeId.ROADMAP
 	};
 	map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
-	downloadAndLoad();
 }
 
+
 function downloadAndLoad(params){
-	if(params != ""){
+	if(!params){
 		$xmlLoc = "dblib/genxml.php";
 	} else {
 		$xmlLoc = "dblib/genxml.php?" + params;
@@ -40,7 +46,7 @@ function downloadAndLoad(params){
 			var type = markers[i].getAttribute("type");
 			var point = new google.maps.LatLng(parseFloat(markers[i].getAttribute("lat")),
 					parseFloat(markers[i].getAttribute("lng")));
-			createMarker(point, map, rate, address, type, bserial);
+			createMarker(point, map, rate, address, type, bserial, params);
 
 		}
 	}
@@ -48,47 +54,45 @@ function downloadAndLoad(params){
 }
 
 function updateMap(){
-
-	$startDate = document.getElementById("stardate");
-	$startTime = document.getElementById("starttimehour");
+	$startDate = document.getElementById("startdate").value;
+	$startTime = document.getElementById("starttimehour").value;
 	$startTime= $startTime + ":" + document.getElementById("starttimeminute").value;
-	$endDate = document.getElementById("enddate");
+	$endDate = document.getElementById("enddate").value;
 
-	$endTime= document.getElementById("endtimehour");
+	$endTime= document.getElementById("endtimehour").value;
 
 	$endTime= $endTime + ":" + document.getElementById("endtimeminute").value;
-	$endTime = document.getElementById("enddate");
 	$query = "startDate=" + $startDate + "&" +
 			"startTime=" + $startTime + "&" +
 			"endDate=" + $endDate + "&" +
 			"endTime=" + $endTime;
-	removeMarkers();	
-	alert($query);
-//	downloadAndLoad(query);
-
-}
-
-function removeMarkers(){
-	for(marker in markers){
-		alert(typeof markers.getPosition);
-		if(typeof marker.setVisible == 'function')
-			marker.setVisible(false);
+	newMap();
+	if($startDate == "" || $endDate == ""){
+		dateset=false;
+		downloadAndLoad();
+	}else{
+		dateset=true;
+		downloadAndLoad($query);
 	}
-	markers = new Array();
 }
 
-function createMarker(point, map, rate, address, type, bserial) {
-	if(marker = markerHash[bserial]){
-		marker.setVisible(true);
-		markers.push(marker);
-	} else {
+function createMarker(point, map, rate, address, type, bserial, params) {
+		if(!params){
+			params = "bikeId=" + bserial;
+		} else {
+			params = params + "&bikeId=" + bserial;
+		}
 		var marker = new google.maps.Marker({
 position: point,
 map: map,
 title: type});
-		markers.push(marker);
 		markerHash[bserial] = marker;
-		var html = "<b>" + address + ":</b> <br/> Type: " + type + "<br/> Rate: " + rate + "<br> <a href='reservation.php?bikeId=" + bserial + "'>Reserve this Bike!</a>";
+		var html = "<b>" + address + ":</b> <br/> Type: " + type + "<br/> Rate: " + rate;
+		if(dateset){
+			html = html + "<br> <a href='reservation.php?" + params + "'>Reserve this Bike!</a>";
+		} else {
+			html = html + "<br> Choose rental time"
+		}
 		google.maps.event.addListener(marker, 'click', function() {
 			if(lastInfo){
 			lastInfo.close();
@@ -96,6 +100,5 @@ title: type});
 			lastInfo = new google.maps.InfoWindow({content: html});
 			lastInfo.open(map,marker);
 			});
-	}
 }
 

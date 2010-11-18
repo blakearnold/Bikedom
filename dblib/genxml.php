@@ -12,6 +12,33 @@ function parseToXML($htmlStr)
 } 
 
 
+
+
+if(isset($_GET["startDate"])){
+$startDate = $_GET['startDate']; 
+$startTime = $_GET['startTime']; 
+$endDate = $_GET['endDate'];
+$endTime= $_GET['endTime'];
+	
+	$query = 'SELECT B.RATE, B."TYPE", B.COORD_LONG, B.COORD_LAT, L.INTERSECTION, B.
+BSERIAL FROM BIKES B, LOCATIONS L WHERE L.coord_long = B.coord_long AND B.coord_lat = L.coord_lat';
+
+	$query2 = 'SELECT B.RATE, B."TYPE", B.COORD_LONG, B.COORD_LAT, L.INTERSECTION, B.BSERIAL 
+		FROM BIKES B, LOCATIONS L, RESERVATION R 
+		WHERE 	L.coord_long = B.coord_long AND 
+				B.coord_lat = L.coord_lat AND
+				R.BSERIAL = B.BSERIAL AND
+				R.START_DATE
+				BETWEEN'
+		. " to_date('" . $startDate . " " . $startTime ."','yyyy-mm-dd hh24:mi')"
+		. " AND " . "to_date('" . $endDate . " " . $endTime ."','yyyy-mm-dd hh24:mi')";
+
+$query = $query . " MINUS " . $query2;
+} else {
+// Select all the rows in the markers table
+$query = 'SELECT B.RATE, B."TYPE", B.COORD_LONG, B.COORD_LAT, L.INTERSECTION, B.
+BSERIAL FROM BIKES B, LOCATIONS L WHERE L.coord_long = B.coord_long AND B.coord_lat = L.coord_lat';
+}
 // Opens a connection to a MySQL server
 $connection=oci_connect($username, $password, $database);
 if (!$connection) {
@@ -19,10 +46,6 @@ if (!$connection) {
 	  $e = oci_error();
 	  trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
 }
-
-// Select all the rows in the markers table
-$query = 'SELECT B.RATE, B."TYPE", B.COORD_LONG, B.COORD_LAT, L.INTERSECTION, B.
-BSERIAL FROM BIKES B, LOCATIONS L WHERE L.coord_long = B.coord_long AND B.coord_lat = L.coord_lat';
 $result = oci_parse($connection, $query);
 if (!$result) {
 	  die('Invalid query' );
