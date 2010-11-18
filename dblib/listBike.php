@@ -37,13 +37,13 @@ return $result;
 }
 
 
-$queryMax = "Select max(bserial) from bikes";
+$queryMax = "Select count(bserial) from bikes";
 $max = executeQuery($queryMax);
 $row = oci_fetch_row($max);
 $bserial = 1 + $row[0];
 
 
-$queryMax = "Select max(lserial) from locks";
+$queryMax = "Select count(lserial) from locks";
 $max = executeQuery($queryMax);
 $row = oci_fetch_row($max);
 $lserial = 1 + $row[0];

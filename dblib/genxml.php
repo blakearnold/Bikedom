@@ -28,10 +28,12 @@ BSERIAL FROM BIKES B, LOCATIONS L WHERE L.coord_long = B.coord_long AND B.coord_
 		WHERE 	L.coord_long = B.coord_long AND 
 				B.coord_lat = L.coord_lat AND
 				R.BSERIAL = B.BSERIAL AND
-				R.START_DATE
-				BETWEEN'
+				R.STOP_DATE
+				>='
 		. " to_date('" . $startDate . " " . $startTime ."','yyyy-mm-dd hh24:mi')"
-		. " AND " . "to_date('" . $endDate . " " . $endTime ."','yyyy-mm-dd hh24:mi')";
+		. " AND " 
+		. " R.START_DATE <="
+		. "to_date('" . $endDate . " " . $endTime ."','yyyy-mm-dd hh24:mi')";
 
 $query = $query . " MINUS " . $query2;
 } else {

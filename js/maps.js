@@ -25,6 +25,7 @@ function downloadAndLoad(params){
 	} else {
 		$xmlLoc = "dblib/genxml.php?" + params;
 	}
+	alert( $xmlLoc);
 	if (window.XMLHttpRequest)
 	{// code for IE7+, Firefox, Chrome, Opera, Safari
 		xmlhttp=new XMLHttpRequest();

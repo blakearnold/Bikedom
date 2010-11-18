@@ -45,7 +45,7 @@ function testuser($user){
 }
 function insertUser($user, $pwd, $name, $number){
 	
-	$queryMax = "Select max(real_id) from people";
+	$queryMax = "Select count(real_id) from people";
 	$max = executeQuery($queryMax);
 	$row = oci_fetch_row($max);
 	$real_id = 1 + $row[0];
